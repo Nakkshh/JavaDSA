@@ -76,3 +76,45 @@ Use **Two Pointers (Opposite Direction)** when:
     - `sum < target` → `left++`
     - `sum > target` → `right--`
     - `sum == target` → Count all duplicate pairs, then move both pointers.
+
+
+# 3. Triplet Sum in Array
+
+**Pattern:** Sorting + Two Pointers (**Opposite Direction**)
+
+## Logic
+- First, **sort the array**.
+- Fix one element (`arr[i]`) as the first element of the triplet.
+- Convert the remaining problem into a **Two Sum** problem.
+- Calculate the remaining required sum:
+  - `remaining = target - arr[i]`
+- Use two pointers:
+  - `left = i + 1`
+  - `right = arr.length - 1`
+- Compare `arr[left] + arr[right]` with `remaining`.
+- If the sum is smaller than `remaining`, move `left` to the right.
+- If the sum is greater than `remaining`, move `right` to the left.
+- If the sum equals `remaining`, a valid triplet is found, so return `true`.
+- If no triplet is found after checking every fixed element, return `false`.
+
+## Key Points
+- Sorting is required before applying the Two Pointer approach.
+- `i` → Fixed element of the triplet.
+- `left` → Starts from `i + 1`.
+- `right` → Starts from the end of the array.
+- After fixing one element, the problem becomes a standard **Two Sum** problem.
+- The algorithm stops immediately after finding the first valid triplet.
+
+## Complexity
+- **Time:** `O(n²)`
+  - Sorting takes `O(n log n)`.
+  - The outer loop runs `O(n)` times.
+  - The Two Pointer search takes `O(n)` for each fixed element.
+- **Space:** `O(1)` *(ignoring the sorting implementation)*
+
+## Pattern Recognition
+Use **Sorting + Two Pointers (Opposite Direction)** when:
+- The problem asks for a **triplet** satisfying a target sum.
+- The array can be sorted.
+- You can **fix one element** and reduce the remaining problem to **Two Sum**.
+- The goal is to improve the brute-force `O(n³)` solution to `O(n²)`.
