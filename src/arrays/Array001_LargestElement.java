@@ -9,9 +9,6 @@ public class Array001_LargestElement {
             if(nums[i] > max){
                 max = nums[i];
             }
-            else if(nums[i] == max){
-                max = max;
-            }
         }
         return max;
     }
