@@ -1,0 +1,17 @@
+package arrays;
+
+public class Array003_MoveZeroes {
+    public void moveZeroes(int [] arr){
+        int i = 0;
+        for(int j = 0 ; j < arr.length ; j++){
+            if(arr[j] != 0){
+                arr[i] = arr[j];
+                i++;
+            }
+        }
+        while(i < arr.length){
+            arr[i] = 0;
+            i++;
+        }
+    }
+}
