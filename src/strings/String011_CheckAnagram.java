@@ -25,5 +25,4 @@ public class String011_CheckAnagram {
       }
         System.out.println(true);
     }
-
 }
